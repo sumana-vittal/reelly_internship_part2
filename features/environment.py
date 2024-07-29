@@ -5,61 +5,17 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from app.application import Application
 
-# Change the browser value to "chrome" or "firefox" or "headless" to execute in that environment
-#browser = "Chrome"
-
-browser_names = ('chrome', 'firefox', 'headless')
-
 
 def browser_init(context):  #scenario_name): - required for browserstack
     """
     :param context: Behave context
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    # driver_path = ChromeDriverManager().install()
+    # # driver_path=''/Users/raman/.wdm/drivers/chromedriver/mac64/127.0.6533.72/chromedriver-mac-x64/THIRD_PARTY_NOTICES.chromedriver
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+    context.driver = webdriver.Chrome()
 
-   ###FIREFOX  BROWSER Support###
-   # service = Service(executable_path="/Users/raman/Documents/Careerist/QA/python_pop_automation/geckodriver")
-   #  driver_path = GeckoDriverManager().install()
-   #  service = Service(driver_path)
-   #  context.driver = webdriver.Firefox(service=service)
-
-    ### SAFARI  BROWSER Support ###
-   #  context.driver = webdriver.Safari()
-
-    ###HEADLESS BROWSER SUPPORT###
-    # options = webdriver.ChromeOptions()
-    # options.add_argument("headless")
-    # service = Service(ChromeDriverManager().install())
-    # context.driver = webdriver.Chrome(
-    #     options=options,
-    #     service=service
-    # )
-
-    ###BrOWSERSTACK -runing testcases on cloud###
-    # https://www.browserstack.com/automate/capabilities
-    # bs_user = "reaper_9yL8gs"
-    # bs_key = "4prCBjhpVgCu9rJdiJMt"
-    # url = f"https://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub"
-
-    #options = Options()
-    # bstack_options = {
-    #     'os': 'Windows',
-    #     'osVersion': '10',
-    #     'browserName': 'Firefox',
-    #     'sessionName': scenario_name
-    # }
-    # bstack_options = {
-    #     "os": "OS X",
-    #     "osVersion": "Ventura",
-    #     "browserName": "Chrome",
-    #     'sessionName': scenario_name
-    # }
-    #
-    # options.set_capability('bstack:options', bstack_options)
-    # context.driver = webdriver.Remote(command_executor=url, options=options)
-    #
     context.driver.wait = WebDriverWait(context.driver, 10)
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)

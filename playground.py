@@ -5,12 +5,12 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 
-
-driver_path = ChromeDriverManager().install()
-service = Service(driver_path)
-chrome_options = Options()
-chrome_options.add_argument("--incognito")
-driver = webdriver.Chrome(options=chrome_options, service=service)
+# driver_path = ChromeDriverManager().install()
+# service = Service(driver_path)
+# chrome_options = Options()
+# chrome_options.add_argument("--incognito")
+# driver = webdriver.Chrome(options=chrome_options, service=service)
+driver = webdriver.Chrome()
 driver.maximize_window()
 
 driver.get("https://soft.reelly.io/sign-up")
