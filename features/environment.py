@@ -11,7 +11,6 @@ def browser_init(context):  #scenario_name): - required for browserstack
     :param context: Behave context
     """
     # driver_path = ChromeDriverManager().install()
-    # # driver_path=''/Users/raman/.wdm/drivers/chromedriver/mac64/127.0.6533.72/chromedriver-mac-x64/THIRD_PARTY_NOTICES.chromedriver
     # service = Service(driver_path)
     # context.driver = webdriver.Chrome(service=service)
     context.driver = webdriver.Chrome()

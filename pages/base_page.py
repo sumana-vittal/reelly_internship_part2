@@ -22,3 +22,40 @@ class Page:
 
     def click(self, *locator):
         self.driver.find_element(*locator).click()
+
+    def wait_element_clickable(self, *locator):
+        self.wait.until(
+            EC.element_to_be_clickable(locator),
+            message=f"Element by '{locator}' is not clickable."
+        )
+
+    def wait_element_clickable_click(self, *locator):
+        self.wait.until(
+            EC.element_to_be_clickable(locator),
+            message=f"Element by '{locator}' is not clickable."
+        ).click()
+
+    def presence_of_element_located(self, *locator):
+        self.wait.until(
+            EC.presence_of_element_located(locator),
+            message=f"Couldn't find the presence of element at '{locator}'")
+
+    def verify_attribute_value(self, expected_text, *locator):
+        actual_text = self.driver.find_element(*locator).get_attribute("value")
+        assert expected_text == actual_text, f"Expected {expected_text} but got {actual_text}"
+
+    def verify_text(self, expected_text, *locator):
+        actual_text = self.driver.find_element(*locator).text
+        assert expected_text == actual_text, f"Expected {expected_text} but got {actual_text}"
+
+    def verify_partial_text(self, expected_text, *locator):
+        actual_text = self.driver.find_element(*locator).text
+        assert expected_text in actual_text, f"Expected {expected_text} but got {actual_text}"
+
+    def verify_partial_url(self, expected_url_text):
+        self.wait.until(EC.url_contains(expected_url_text),
+                        message = f"Expected text '{expected_url_text}' not part of url!")
+
+
+
+
