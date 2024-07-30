@@ -28,5 +28,25 @@ def verify_right_information(context):
 def verify_send_application_btn(context):
     context.app.add_a_project.verify_send_application()
 
+#----------------------------------------------------------------------------------------------------------------
+
+# steps for the edit profile
+@when("Click on Edit profile option.")
+def click_edit_profile(context):
+    context.app.settings_page.click_edit_profile()
+
+@when("Enter some test information in the input fields.")
+def enter_test_data(context):
+    context.app.edit_profile.enter_profile_data()
+
+@then("Check the right information is present in the input fields.")
+def verify_profile_information(context):
+    context.app.edit_profile.verify_right_profile_information()
+
+@then("Check 'Close' and 'Save Changes' buttons are available and clickable.")
+def verify_profile_btns(context):
+    context.app.edit_profile.verify_profile_buttons()
+
+
 
 

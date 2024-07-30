@@ -35,6 +35,9 @@ class Page:
             message=f"Element by '{locator}' is not clickable."
         ).click()
 
+    def clear_text(self, *locator):
+        self.driver.find_element(*locator).clear()
+
     def presence_of_element_located(self, *locator):
         self.wait.until(
             EC.presence_of_element_located(locator),
