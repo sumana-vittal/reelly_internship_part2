@@ -26,7 +26,7 @@ def verify_right_information(context):
 
 @then("Verify 'Send an application' button is available and clickable.")
 def verify_send_application_btn(context):
-    pass
+    context.app.add_a_project.verify_send_application()
 
 
 
