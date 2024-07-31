@@ -3,12 +3,9 @@ from pages.base_page import Page
 from pages.edit_profile_page import EditProfilePage
 from pages.login_page import Login
 from pages.main_page import MainPage
+from pages.registration_page import RegistrationPage
 from pages.settings_page import SettingsPage
 from pages.side_panel_menu import SidePanelMenu
-
-
-
-
 
 class Application:
 
@@ -20,3 +17,4 @@ class Application:
         self.settings_page = SettingsPage(driver)
         self.add_a_project = AddAProjectPage(driver)
         self.edit_profile = EditProfilePage(driver)
+        self.registration_page = RegistrationPage(driver)

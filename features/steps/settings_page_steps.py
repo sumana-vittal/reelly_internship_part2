@@ -2,7 +2,7 @@ from behave import given, when, then
 
 @given("Open the main page https://soft.reelly.io")
 def open_main_page(context):
-    context.app.main_page.open_main_page()
+    context.app.main_page.open_main_page("https://soft.reelly.io")
 
 @when("Click on settings option.")
 def click_settings(context):

@@ -1,6 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from selenium.webdriver.support.ui import Select
 
 class Page:
 
@@ -58,6 +58,28 @@ class Page:
     def verify_partial_url(self, expected_url_text):
         self.wait.until(EC.url_contains(expected_url_text),
                         message = f"Expected text '{expected_url_text}' not part of url!")
+
+    def select_dropdown_value(self, value, *locator):
+        select_element = self.driver.find_element(*locator)
+        select = Select(select_element)
+        select.select_by_visible_text(value)
+
+    def get_dropdown_value(self, value, *locator):
+        select_element = self.driver.find_element(*locator)
+        select = Select(select_element)
+        selected_text = select.first_selected_option.text
+        assert value == selected_text, f"Expected {value} but got {selected_text}"
+
+    def checkbox_click(self, *locator):
+        chkbox_element = self.driver.find_element(*locator)
+        if chkbox_element.is_selected() != True:
+            chkbox_element.click()
+
+
+    def is_checkbox_selected(self, *locator):
+        chkbox_element = self.driver.find_element(*locator)
+        assert chkbox_element.is_selected() == True, f"Checkbox needs to selected!"
+
 
 
 

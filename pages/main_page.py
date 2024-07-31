@@ -6,5 +6,5 @@ class MainPage(Page):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def open_main_page(self):
-        self.open("https://soft.reelly.io/")
+    def open_main_page(self, url):
+        self.open(url)
