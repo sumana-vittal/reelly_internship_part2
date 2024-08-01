@@ -47,6 +47,19 @@ def verify_profile_information(context):
 def verify_profile_btns(context):
     context.app.edit_profile.verify_profile_buttons()
 
+#-------------------------------------------------------------------------------------------------------------------
 
+#steps for community link
+@when("Click on Community option.")
+def click_on_community(context):
+    context.app.settings_page.click_community()
+
+@then("Verify the Community page opens.")
+def verify_community_url(context):
+    context.app.community_page.verify_right_url('community')
+
+@then("Verify 'Contact support' button is available and clickable.")
+def verify_contact_support_btn(context):
+    context.app.community_page.verify_contact_support()
 
 

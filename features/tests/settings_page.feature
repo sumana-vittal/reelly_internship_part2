@@ -18,3 +18,11 @@ Feature: Test Scenarios for the setting page.
      And Enter some test information in the input fields.
      Then Check the right information is present in the input fields.
      Then Check 'Close' and 'Save Changes' buttons are available and clickable.
+
+  Scenario: Verify Community Page data
+     Given Open the main page https://soft.reelly.io
+     When Log in to the page.
+     And Click on settings option.
+     And Click on Community option.
+     Then Verify the Community page opens.
+     Then Verify 'Contact support' button is available and clickable.
