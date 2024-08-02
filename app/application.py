@@ -1,6 +1,7 @@
 from pages.add_a_project_page import AddAProjectPage
 from pages.base_page import Page
 from pages.community_page import CommunityPage
+from pages.connect_the_company_page import ConnectTheCompany
 from pages.edit_profile_page import EditProfilePage
 from pages.login_page import Login
 from pages.main_page import MainPage
@@ -20,3 +21,4 @@ class Application:
         self.edit_profile = EditProfilePage(driver)
         self.registration_page = RegistrationPage(driver)
         self.community_page = CommunityPage(driver)
+        self.connect_the_company = ConnectTheCompany(driver)

@@ -35,6 +35,15 @@ class Page:
             message=f"Element by '{locator}' is not clickable."
         ).click()
 
+    def switch_to_new_window(self):
+        self.wait.until(
+            EC.new_window_is_opened,
+            message="Error in switching to new window"
+        )
+
+        all_windows = self.driver.window_handles
+        self.driver.switch_to.window(all_windows[1])
+
     def clear_text(self, *locator):
         self.driver.find_element(*locator).clear()
 

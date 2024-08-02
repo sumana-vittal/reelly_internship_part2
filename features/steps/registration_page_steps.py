@@ -1,6 +1,6 @@
 from behave import given, when, then
 
-@given("Open the registration page or sign up page: https://soft.reelly.io/sign-up")
+@given("Open the main page https://soft.reelly.io/sign-up")
 def open_main_page(context):
     context.app.main_page.open_main_page("https://soft.reelly.io/sign-up")
 
