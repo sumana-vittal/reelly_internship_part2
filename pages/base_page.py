@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver import ActionChains
 
 class Page:
 
@@ -52,6 +53,10 @@ class Page:
             EC.presence_of_element_located(locator),
             message=f"Couldn't find the presence of element at '{locator}'")
 
+    def get_attribute_value(self, *locator, attribute):
+        actual_text = self.driver.find_element(*locator).get_attribute("value")
+        return actual_text
+
     def verify_attribute_value(self, expected_text, *locator):
         actual_text = self.driver.find_element(*locator).get_attribute("value")
         assert expected_text == actual_text, f"Expected {expected_text} but got {actual_text}"
@@ -88,6 +93,8 @@ class Page:
     def is_checkbox_selected(self, *locator):
         chkbox_element = self.driver.find_element(*locator)
         assert chkbox_element.is_selected() == True, f"Checkbox needs to selected!"
+
+
 
 
 

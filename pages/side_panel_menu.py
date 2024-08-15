@@ -7,6 +7,7 @@ class SidePanelMenu(Page):
 
     SETTINGS_SIDE_MENU_LINK = (By.CSS_SELECTOR, "[href*='settings'][class*='menu-button-block']")
     CONNECT_THE_COMPANY_BTN = (By.CSS_SELECTOR, "[class*='get-free-period']")
+    MAIN_MENU_LINK = (By.XPATH, "//div[text()='Main menu']")
 
     def __init__(self,driver):
         super().__init__(driver)
@@ -16,5 +17,8 @@ class SidePanelMenu(Page):
 
     def click_connect_the_company(self):
         self.click(*self.CONNECT_THE_COMPANY_BTN )
+
+    def click_main_menu(self):
+        self.click(*self.MAIN_MENU_LINK)
 
 

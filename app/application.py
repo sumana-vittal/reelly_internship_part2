@@ -4,6 +4,7 @@ from pages.community_page import CommunityPage
 from pages.connect_the_company_page import ConnectTheCompany
 from pages.edit_profile_page import EditProfilePage
 from pages.login_page import Login
+from pages.main_menu_page import MainMenuPage
 from pages.main_page import MainPage
 from pages.registration_page import RegistrationPage
 from pages.settings_page import SettingsPage
@@ -22,3 +23,4 @@ class Application:
         self.registration_page = RegistrationPage(driver)
         self.community_page = CommunityPage(driver)
         self.connect_the_company = ConnectTheCompany(driver)
+        self.main_menu_page = MainMenuPage(driver)
