@@ -26,3 +26,12 @@ Feature: Test Scenarios for the setting page.
      And Click on Community option.
      Then Verify the Community page opens.
      Then Verify 'Contact support' button is available and clickable.
+
+  Scenario: Verify Contact us page data
+      Given Open the main page https://soft.reelly.io
+      When Log in to the page.
+      And Click on settings option.
+      And Click on Contact us option.
+      Then Verify the contact page opens.
+      And Verify there are at least 4 social media icons.
+      And Verify 'Connect the company' button is available and clickable

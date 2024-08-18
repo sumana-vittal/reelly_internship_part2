@@ -2,6 +2,7 @@ from pages.add_a_project_page import AddAProjectPage
 from pages.base_page import Page
 from pages.community_page import CommunityPage
 from pages.connect_the_company_page import ConnectTheCompany
+from pages.contact_us_page import ContactUs
 from pages.edit_profile_page import EditProfilePage
 from pages.login_page import Login
 from pages.main_menu_page import MainMenuPage
@@ -24,3 +25,4 @@ class Application:
         self.community_page = CommunityPage(driver)
         self.connect_the_company = ConnectTheCompany(driver)
         self.main_menu_page = MainMenuPage(driver)
+        self.contact_us_page = ContactUs(driver)

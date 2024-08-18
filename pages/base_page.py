@@ -73,6 +73,10 @@ class Page:
         self.wait.until(EC.url_contains(expected_url_text),
                         message = f"Expected text '{expected_url_text}' not part of url!")
 
+    # def verify_by_webelement(self, element, expected_text):
+    #     actual_text = element.text
+    #     assert expected_text == actual_text, f"Expected {expected_text} but got {actual_text}"
+
     def select_dropdown_value(self, value, *locator):
         select_element = self.driver.find_element(*locator)
         select = Select(select_element)

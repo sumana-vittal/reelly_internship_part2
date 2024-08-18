@@ -20,8 +20,8 @@ class AddAProjectPage(Page):
     def __int__(self, driver):
         super().__int__(driver)
 
-    def verify_right_url(self):
-        self.verify_partial_url("add-a-project")
+    def verify_right_url(self, page):
+        self.verify_partial_url(page)
 
     def input_project_data(self):
         self.input_text("James", *self.NAME_FIELD)
