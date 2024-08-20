@@ -13,9 +13,12 @@ class ContactUs(Page):
 
     def verify_social_icon(self):
         icons = self.find_elements(*self.SOCIAL_ICONS)
-        for icon in icons:
-            if icon.text not in self.social_icons_names:
-                assert icon.text, f"{icon.text} is not a social icon."
+        if icons.count != 4:
+            assert icons.count, f"Needs {icons.count} social icons to be present."
+        else:
+            for icon in icons:
+                if icon.text not in self.social_icons_names:
+                    assert icon.text, f"{icon.text} is not a social icon."
 
     def verify_connect_company_btn(self):
         self.wait_element_clickable(*self.CONNECT_THE_COMPANY_BTN)
