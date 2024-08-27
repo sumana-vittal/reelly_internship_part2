@@ -35,3 +35,11 @@ Feature: Test Scenarios for the setting page.
       Then Verify the contact page opens.
       And Verify there are at least 4 social media icons.
       And Verify 'Connect the company' button is available and clickable
+
+  Scenario: Verify User Guide page data
+     Given Open the main page https://soft.reelly.io
+     When Log in to the page.
+     And Click on settings option.
+     And Click on User Guide option.
+     Then Verify the user guide page opens.
+     And Verify all lesson videos contain titles

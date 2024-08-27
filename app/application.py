@@ -10,6 +10,8 @@ from pages.main_page import MainPage
 from pages.registration_page import RegistrationPage
 from pages.settings_page import SettingsPage
 from pages.side_panel_menu import SidePanelMenu
+from pages.user_guide_page import UserGuidePage
+
 
 class Application:
 
@@ -26,3 +28,4 @@ class Application:
         self.connect_the_company = ConnectTheCompany(driver)
         self.main_menu_page = MainMenuPage(driver)
         self.contact_us_page = ContactUs(driver)
+        self.user_guide_page = UserGuidePage(driver)

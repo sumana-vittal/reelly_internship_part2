@@ -23,7 +23,7 @@ driver.find_element(By.CSS_SELECTOR, "[class='menu-twobutton']").click()
 
 sleep(6)
 
-products = driver.find_elements(By.CSS_SELECTOR, "[wized='cardOfProperty']")
+products = driver.find_elements(By.CSS_SELECTOR, "[wized='cardOfProperty']")z
 
 
 #print(len(products))

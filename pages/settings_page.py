@@ -9,6 +9,7 @@ class SettingsPage(Page):
     EDIT_PROFILE = (By.CSS_SELECTOR, "[href*='profile-edit']")
     COMMUNITY = (By.CSS_SELECTOR, "[href*='community'].page-setting-block")
     CONTACT_US = (By.CSS_SELECTOR, "[href*='contact-us'].page-setting-block")
+    USER_GUIDE = (By.CSS_SELECTOR, "a[href*='user-guide'].page-setting-block")
 
     def __init__(self,driver):
         super().__init__(driver)
@@ -24,6 +25,9 @@ class SettingsPage(Page):
 
     def click_contact_us(self):
         self.click(*self.CONTACT_US)
+
+    def click_user_guide(self):
+        self.click(*self.USER_GUIDE)
 
 
 

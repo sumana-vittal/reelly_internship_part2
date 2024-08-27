@@ -45,6 +45,13 @@ class Page:
         all_windows = self.driver.window_handles
         self.driver.switch_to.window(all_windows[1])
 
+    def switch_frames(self, *locator):
+        frame1 = self.find_element(*locator)
+        self.driver.switch_to.frame(frame1)
+
+    def reset_frame(self):
+        self.driver.switch_to.default_content()
+
     def clear_text(self, *locator):
         self.driver.find_element(*locator).clear()
 
