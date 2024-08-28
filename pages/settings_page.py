@@ -10,6 +10,7 @@ class SettingsPage(Page):
     COMMUNITY = (By.CSS_SELECTOR, "[href*='community'].page-setting-block")
     CONTACT_US = (By.CSS_SELECTOR, "[href*='contact-us'].page-setting-block")
     USER_GUIDE = (By.CSS_SELECTOR, "a[href*='user-guide'].page-setting-block")
+    CHANGE_PASSWORD = (By.CSS_SELECTOR, "a[href*='password']")  #"a.page-setting-block.w-inline-block")
 
     def __init__(self,driver):
         super().__init__(driver)
@@ -28,6 +29,9 @@ class SettingsPage(Page):
 
     def click_user_guide(self):
         self.click(*self.USER_GUIDE)
+
+    def click_change_password(self):
+        self.click(*self.CHANGE_PASSWORD)
 
 
 

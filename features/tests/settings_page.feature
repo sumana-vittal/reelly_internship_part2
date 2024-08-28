@@ -43,3 +43,12 @@ Feature: Test Scenarios for the setting page.
      And Click on User Guide option.
      Then Verify the user guide page opens.
      And Verify all lesson videos contain titles
+
+  Scenario: Verify Change Password page
+    Given Open the main page https://soft.reelly.io
+    When Log in to the page.
+    And Click on settings option.
+    And Click on Change password option.
+    Then Verify the change password page opens.
+    And Add some test password to the input fields.
+    And Verify the 'Change password' button is available.

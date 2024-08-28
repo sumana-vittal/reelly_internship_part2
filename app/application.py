@@ -1,5 +1,6 @@
 from pages.add_a_project_page import AddAProjectPage
 from pages.base_page import Page
+from pages.change_password_page import ChangePassword
 from pages.community_page import CommunityPage
 from pages.connect_the_company_page import ConnectTheCompany
 from pages.contact_us_page import ContactUs
@@ -29,3 +30,4 @@ class Application:
         self.main_menu_page = MainMenuPage(driver)
         self.contact_us_page = ContactUs(driver)
         self.user_guide_page = UserGuidePage(driver)
+        self.change_password = ChangePassword(driver)
