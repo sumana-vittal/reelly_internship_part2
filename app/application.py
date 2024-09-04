@@ -11,6 +11,7 @@ from pages.main_page import MainPage
 from pages.registration_page import RegistrationPage
 from pages.settings_page import SettingsPage
 from pages.side_panel_menu import SidePanelMenu
+from pages.subscription_and_payment import SubscriptionPaymentPage
 from pages.user_guide_page import UserGuidePage
 
 
@@ -31,3 +32,4 @@ class Application:
         self.contact_us_page = ContactUs(driver)
         self.user_guide_page = UserGuidePage(driver)
         self.change_password = ChangePassword(driver)
+        self.subscription_payment = SubscriptionPaymentPage(driver)

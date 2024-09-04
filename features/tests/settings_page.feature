@@ -52,3 +52,12 @@ Feature: Test Scenarios for the setting page.
     Then Verify the change password page opens.
     And Add some test password to the input fields.
     And Verify the 'Change password' button is available.
+
+  Scenario:  User can open Subscription & payments page
+    Given Open the main page https://soft.reelly.io
+    When Log in to the page.
+    And Click on settings option.
+    And Click on Subscription & payments option.
+    Then Verify the 'subscription and payment' page opens.
+    And Verify title 'Subscription & payments' is visible.
+    And Verify 'back' and 'upgrade plan' buttons are available.
