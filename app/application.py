@@ -8,10 +8,12 @@ from pages.edit_profile_page import EditProfilePage
 from pages.login_page import Login
 from pages.main_menu_page import MainMenuPage
 from pages.main_page import MainPage
+from pages.news_page import NewsPage
 from pages.registration_page import RegistrationPage
 from pages.settings_page import SettingsPage
 from pages.side_panel_menu import SidePanelMenu
 from pages.subscription_and_payment import SubscriptionPaymentPage
+from pages.support_page import SupportPage
 from pages.user_guide_page import UserGuidePage
 
 
@@ -33,3 +35,5 @@ class Application:
         self.user_guide_page = UserGuidePage(driver)
         self.change_password = ChangePassword(driver)
         self.subscription_payment = SubscriptionPaymentPage(driver)
+        self.support_page = SupportPage(driver)
+        self.news_page = NewsPage(driver)

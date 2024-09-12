@@ -45,6 +45,9 @@ class Page:
         all_windows = self.driver.window_handles
         self.driver.switch_to.window(all_windows[1])
 
+    def switch_to_window(self, window_id):
+        self.driver.switch_to.window(window_id)
+
     def switch_frames(self, *locator):
         frame1 = self.find_element(*locator)
         self.driver.switch_to.frame(frame1)

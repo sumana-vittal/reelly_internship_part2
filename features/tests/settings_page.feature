@@ -61,3 +61,14 @@ Feature: Test Scenarios for the setting page.
     Then Verify the 'subscription and payment' page opens.
     And Verify title 'Subscription & payments' is visible.
     And Verify 'back' and 'upgrade plan' buttons are available.
+
+  Scenario: User can access Whatsapp and Telegram communities
+    Given Open the main page https://soft.reelly.io
+    When Log in to the page.
+    And Click on settings option.
+    And Click on support option.
+    And Switch to the new tab.
+    Then Verify the right page support opens.
+    When Go back.
+    And Click on news option.
+    Then Verify the right page news opens.
