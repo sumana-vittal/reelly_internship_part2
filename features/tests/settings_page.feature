@@ -72,3 +72,11 @@ Feature: Test Scenarios for the setting page.
     When Go back.
     And Click on news option.
     Then Verify the right page news opens.
+
+  Scenario: User can go to settings and see the right number of UI elements
+    Given Open the main page https://soft.reelly.io
+    When Log in to the page.
+    And Click on settings option.
+    Then Verify the right page opens.
+    And Verify there are 12 options for the settings.
+    And Verify 'connect the company' button is available.

@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver.common.by import By
 from pages.base_page import Page
 
@@ -23,6 +25,7 @@ class Login(Page):
 
     # Enter the log in credentials and click on the continue button
     def login_details_and_click(self):
+        self.presence_of_element_located(*self.EMAIL_FIELD)
         self.input_text("vn.sumana@gmail.com", *self.EMAIL_FIELD)
         self.input_text("sReelly", *self.PASSWORD_FIELD)
         self.click(*self.CONTINUE_BUTTON)

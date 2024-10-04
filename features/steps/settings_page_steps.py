@@ -14,7 +14,7 @@ def click_add_a_project(context):
 
 @then("Verify the right page opens.")
 def verify_right_url(context):
-    context.app.add_a_project.verify_right_url()
+    context.app.settings_page.verify_setting_page_opens("settings")
 
 @when("Add some test information to the input fields.")
 def input_test_data(context):
@@ -27,6 +27,14 @@ def verify_right_information(context):
 @then("Verify 'Send an application' button is available and clickable.")
 def verify_send_application_btn(context):
     context.app.add_a_project.verify_send_application()
+
+@then("Verify there are {no_of_options} options for the settings.")
+def verify_settings_options(context, no_of_options):
+    context.app.settings_page.verify_settings_options(no_of_options)
+
+@then("Verify 'connect the company' button is available.")
+def verify_connect_company_button_available(context):
+    context.app.settings_page.verify_connect_company_button()
 
 #----------------------------------------------------------------------------------------------------------------
 
@@ -61,5 +69,6 @@ def verify_community_url(context):
 @then("Verify 'Contact support' button is available and clickable.")
 def verify_contact_support_btn(context):
     context.app.community_page.verify_contact_support()
+
 
 

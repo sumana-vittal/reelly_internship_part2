@@ -13,6 +13,7 @@ class SidePanelMenu(Page):
         super().__init__(driver)
 
     def click_settings(self):
+        self.presence_of_element_located(*self.SETTINGS_SIDE_MENU_LINK)
         self.click(*self.SETTINGS_SIDE_MENU_LINK)
 
     def click_connect_the_company(self):

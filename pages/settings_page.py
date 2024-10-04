@@ -14,6 +14,8 @@ class SettingsPage(Page):
     SUBSCRIPTION_AND_PAYMENT = (By.CSS_SELECTOR, "a[href *= 'subscription'].page-setting-block" )
     SUPPORT = (By.CSS_SELECTOR, "[href*='https://api.whatsapp.com']")
     NEWS = (By.CSS_SELECTOR, "[href*='https://t.me/reellydxb'].page-setting-block")
+    SETTINGS_OPTIONS = (By.CSS_SELECTOR, "a.page-setting-block")
+    CONNECT_COMPANY_BUTTON = (By.XPATH, "//div[@class='settings-profile-block']//div[text()='Connect the company']")
 
     def __init__(self,driver):
         super().__init__(driver)
@@ -44,6 +46,16 @@ class SettingsPage(Page):
 
     def click_news(self):
         self.click(*self.NEWS)
+
+    def verify_setting_page_opens(self, expected_partial_url):
+        self.verify_partial_url(expected_partial_url)
+
+    def verify_settings_options(self, no_of_options):
+        setting_options = self.find_elements(*self.SETTINGS_OPTIONS)
+        assert str(len(setting_options)) == no_of_options, f"Should have {no_of_options} options under settings"
+
+    def verify_connect_company_button(self):
+        self.presence_of_element_located(*self.CONNECT_COMPANY_BUTTON)
 
 
 

@@ -31,9 +31,9 @@ def browser_init(context, scenario_name):
     # else:
     #     print("Please provide the valid browser name")
 
-    #context.driver = webdriver.Chrome()
+    # context.driver = webdriver.Chrome()
 
-    ###BrOWSERSTACK -runing testcases on cloud###
+    ##BrOWSERSTACK -runing testcases on cloud###
     bs_user = "sumana_RfsCp8"
     bs_key = "wQnv1Vg3qyisiGsxgbsq"
     url = f"https://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub"
@@ -51,8 +51,8 @@ def browser_init(context, scenario_name):
 
 
 
-    context.driver.maximize_window()
-    context.driver.implicitly_wait(4)
+    # context.driver.maximize_window()
+    # context.driver.implicitly_wait(4)
 
     context.app = Application(context.driver)
 
