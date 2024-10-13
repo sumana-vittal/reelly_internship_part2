@@ -10,6 +10,7 @@ from pages.main_menu_page import MainMenuPage
 from pages.main_page import MainPage
 from pages.news_page import NewsPage
 from pages.registration_page import RegistrationPage
+from pages.secondary_page import SecondaryPage
 from pages.settings_page import SettingsPage
 from pages.side_panel_menu import SidePanelMenu
 from pages.subscription_and_payment import SubscriptionPaymentPage
@@ -37,3 +38,4 @@ class Application:
         self.subscription_payment = SubscriptionPaymentPage(driver)
         self.support_page = SupportPage(driver)
         self.news_page = NewsPage(driver)
+        self.secondary_page = SecondaryPage(driver)

@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
@@ -107,6 +109,11 @@ class Page:
     def is_checkbox_selected(self, *locator):
         chkbox_element = self.driver.find_element(*locator)
         assert chkbox_element.is_selected() == True, f"Checkbox needs to selected!"
+
+    def pagination(self, first_value, final_value, incremental, *locator):
+        for i in range(first_value, final_value, incremental):
+            self.click(*locator)
+            time.sleep(2)
 
 
 

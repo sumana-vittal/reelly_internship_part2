@@ -51,8 +51,8 @@ def browser_init(context, scenario_name):
 
 
 
-    # context.driver.maximize_window()
-    # context.driver.implicitly_wait(4)
+    context.driver.maximize_window()
+    context.driver.implicitly_wait(4)
 
     context.app = Application(context.driver)
 
