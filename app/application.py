@@ -5,6 +5,7 @@ from pages.community_page import CommunityPage
 from pages.connect_the_company_page import ConnectTheCompany
 from pages.contact_us_page import ContactUs
 from pages.edit_profile_page import EditProfilePage
+from pages.filter_side_panel_page import FilterPage
 from pages.login_page import Login
 from pages.main_menu_page import MainMenuPage
 from pages.main_page import MainPage
@@ -39,3 +40,4 @@ class Application:
         self.support_page = SupportPage(driver)
         self.news_page = NewsPage(driver)
         self.secondary_page = SecondaryPage(driver)
+        self.filter_page = FilterPage(driver)

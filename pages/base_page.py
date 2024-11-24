@@ -38,6 +38,21 @@ class Page:
             message=f"Element by '{locator}' is not clickable."
         ).click()
 
+    def wait_for_all_visibility_elements_located(self, *locator):
+        web_elements = self.wait.until(
+            EC.visibility_of_all_elements_located(locator),
+            message = f"Element by '{locator}' is not visible."
+        )
+        return web_elements
+
+    def wait_for_visibility_of_element_located(self, *locator):
+        web_element = self.wait.until(
+            EC.visibility_of_element_located(locator),
+            message=f"Element by '{locator}' is not visible."
+        )
+        return web_element
+
+
     def switch_to_new_window(self):
         self.wait.until(
             EC.new_window_is_opened,
@@ -61,9 +76,10 @@ class Page:
         self.driver.find_element(*locator).clear()
 
     def presence_of_element_located(self, *locator):
-        self.wait.until(
+        element = self.wait.until(
             EC.presence_of_element_located(locator),
             message=f"Couldn't find the presence of element at '{locator}'")
+        return element
 
     def get_attribute_value(self, *locator, attribute):
         actual_text = self.driver.find_element(*locator).get_attribute("value")
@@ -114,6 +130,7 @@ class Page:
         for i in range(first_value, final_value, incremental):
             self.click(*locator)
             time.sleep(2)
+
 
 
 

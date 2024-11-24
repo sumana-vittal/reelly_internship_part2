@@ -24,7 +24,8 @@ driver.find_element(By.CSS_SELECTOR, "[class='menu-twobutton']").click()
 sleep(6)
 
 products = driver.find_elements(By.CSS_SELECTOR, "[wized='cardOfProperty']")
-
+# for i in products:
+#     i.f
 
 #print(len(products))
 

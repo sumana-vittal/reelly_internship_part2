@@ -15,3 +15,21 @@ def goto_final_page(context):
 @then("Go back to the first page using the pagination button.")
 def goto_first_page(context):
     context.app.secondary_page.goto_first_page()
+
+#-----------------------------------------------------------------------------------------------------------------
+@when("Click on Filters.")
+def click_filter(context):
+    context.app.secondary_page.click_filter()
+
+@when("Filter the products by 'want to sell'.")
+def filter_by_want_to_sell(context):
+
+    context.app.secondary_page.filter_by_want_to_sell()
+
+@when("Click on Apply Filter.")
+def apply_filter(context):
+    context.app.secondary_page.click_apply_filter()
+
+@then("Verify all cards have 'for sale' tag.")
+def verify_sale_tag(context):
+    context.app.secondary_page.verify_sale_tag()
