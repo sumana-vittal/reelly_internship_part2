@@ -23,6 +23,10 @@ class SecondaryPage(Page):
     LISTING_SALE_BUY_TAGS = (By.CSS_SELECTOR, "div[wized='listingCardMLS']")
     SALE_BUY_TAG = (By.CSS_SELECTOR, "div.for-sale-tag")
 
+    PRICE_FROM_AMOUNT = (By.CSS_SELECTOR, "input[wized='unitPriceFromFilter']")
+    PRICE_TO_AMOUNT = (By.CSS_SELECTOR, "input[wized='unitPriceToFilter']")
+    PRICE_LISTED = (By.CSS_SELECTOR, "div.number-price-text")
+
 
     def verify_secondary_page_opens(self, expected_partial_url):
         self.verify_partial_url(expected_partial_url)
@@ -88,6 +92,23 @@ class SecondaryPage(Page):
         for list_card in listing_elements:
             tags = list_card.find_element(*self.SALE_BUY_TAG).text
             assert 'Want to buy' in tags, f"Expected 'Want to buy' tag but didn't find."
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+    def filter_by_price_range(self):
+        self.wait_element_clickable_click(*self.FILTER_BUTTON)
+        self.input_text("1200000", *self.PRICE_FROM_AMOUNT)
+        self.input_text("2000000", *self.PRICE_TO_AMOUNT)
+        self.wait_element_clickable_click(*self.APPLY_FILTER)
+
+    def verify_filtered_price_range(self):
+        price_list = self.find_elements(*self.PRICE_LISTED)
+        for price in price_list:
+            amount = price.text.replace('AED', '').replace(',','')
+            assert int(amount) in range(1200000, 2000001), f"Price not in range!"
+
+
+
 
 
 

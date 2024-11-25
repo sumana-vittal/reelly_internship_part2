@@ -23,6 +23,11 @@ driver.find_element(By.CSS_SELECTOR, "[class='menu-twobutton']").click()
 
 sleep(6)
 
+s = 'AED 1,620,000'
+ss = s.replace('AED', '').replace(',','')
+print(ss)
+
+
 products = driver.find_elements(By.CSS_SELECTOR, "[wized='cardOfProperty']")
 # for i in products:
 #     i.f
