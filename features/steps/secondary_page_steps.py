@@ -23,7 +23,6 @@ def click_filter(context):
 
 @when("Filter the products by 'want to sell'.")
 def filter_by_want_to_sell(context):
-
     context.app.secondary_page.filter_by_want_to_sell()
 
 @when("Click on Apply Filter.")
@@ -32,4 +31,15 @@ def apply_filter(context):
 
 @then("Verify all cards have 'for sale' tag.")
 def verify_sale_tag(context):
-    context.app.secondary_page.verify_sale_tag()
+    context.app.secondary_page.verify_want_to_buy_tag()
+
+# ---------------------------------------------------------------------------------------------------
+
+@when("Filter the products by 'want to buy'.")
+def filter_by_want_to_buy(context):
+    context.app.secondary_page.filter_by_want_to_buy()
+
+@then("Verify all cards have 'Want to buy' tag.")
+def verify_want_to_buy_tag(context):
+    context.app.secondary_page.verify_want_to_buy_tag()
+

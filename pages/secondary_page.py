@@ -18,10 +18,10 @@ class SecondaryPage(Page):
 
     FILTER_BUTTON = (By.CSS_SELECTOR, ".filter-text")
     WANT_TO_SELL_TAG = (By.XPATH, "//div[contains(@class, 'tag-text-filters') and text()='Want to sell']")
-    WANT_TO_SELL = (By.CSS_SELECTOR, "div[wized='ListingTypeSell']")
+    WANT_TO_BUY_TAG = (By.XPATH, "//div[contains(@class, 'tag-text-filters') and text()='Want to buy']")
     APPLY_FILTER = (By.CSS_SELECTOR, "[wized='applyFilterButtonMLS']")
-    LISTING_SALE_TAGS = (By.CSS_SELECTOR, "div[wized='listingCardMLS']")
-    SALE_TAG = (By.CSS_SELECTOR, "div.for-sale-tag")
+    LISTING_SALE_BUY_TAGS = (By.CSS_SELECTOR, "div[wized='listingCardMLS']")
+    SALE_BUY_TAG = (By.CSS_SELECTOR, "div.for-sale-tag")
 
 
     def verify_secondary_page_opens(self, expected_partial_url):
@@ -69,13 +69,25 @@ class SecondaryPage(Page):
 
     def verify_sale_tag(self):
         # listing_elements = self.find_elements(*self.LISTING_SALE_TAGS)
-        listing_elements = self.wait_for_all_visibility_elements_located(*self.LISTING_SALE_TAGS)
+        listing_elements = self.wait_for_all_visibility_elements_located(*self.LISTING_SALE_BUY_TAGS)
         print(len(listing_elements))
         for list_card in listing_elements:
-            sale_tag = list_card.find_element(*self.SALE_TAG).text
+            sale_tag = list_card.find_element(*self.SALE_BUY_TAG).text
             assert 'For sale' in sale_tag, f"Expected 'For sale' tag but didn't find."
             # print(sale_tag)
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+    def filter_by_want_to_buy(self):
+       self.wait_element_clickable_click(*self.FILTER_BUTTON)# previous click is not recognizing though executing, hence clicking again
+       self.wait_element_clickable_click(*self.WANT_TO_BUY_TAG)
+
+    def verify_want_to_buy_tag(self):
+        listing_elements = self.wait_for_all_visibility_elements_located(*self.LISTING_SALE_BUY_TAGS)
+        print(len(listing_elements))
+        for list_card in listing_elements:
+            tags = list_card.find_element(*self.SALE_BUY_TAG).text
+            assert 'Want to buy' in tags, f"Expected 'Want to buy' tag but didn't find."
 
 
 
