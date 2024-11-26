@@ -9,6 +9,7 @@ from pages.login_page import Login
 from pages.main_menu_page import MainMenuPage
 from pages.main_page import MainPage
 from pages.news_page import NewsPage
+from pages.off_plan_page import OffPlanPage
 from pages.registration_page import RegistrationPage
 from pages.secondary_page import SecondaryPage
 from pages.settings_page import SettingsPage
@@ -39,3 +40,4 @@ class Application:
         self.support_page = SupportPage(driver)
         self.news_page = NewsPage(driver)
         self.secondary_page = SecondaryPage(driver)
+        self.off_plan_page = OffPlanPage(driver)
