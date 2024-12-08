@@ -25,3 +25,8 @@ def filter_project_by_price_range(context):
 @then("Verify the price in all cards is in the range (1200000 - 2000000).")
 def verify_price_in_range(context):
     context.app.off_plan_page.verify_price_in_range()
+
+#----------------------------------------------------------------------------------------------------------------------
+@then("Verify each product on this page contains a title and picture visible.")
+def verify_product_title_picture(context):
+    context.app.off_plan_page.verify_product_title_picture()

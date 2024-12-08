@@ -18,9 +18,12 @@ class OffPlanPage(Page):
     FROM_FILTER_PRICE = (By.CSS_SELECTOR, "input[wized='unitPriceFromFilter']")
     TO_FILTER_PRICE = (By.CSS_SELECTOR, "input[wized='unitPriceToFilter']")
     APPLY_FILTER_BTN = (By.CSS_SELECTOR, "a[wized='applyFilterButton']")
-    # FILTERED_PROJECT = (By.CSS_SELECTOR, "div.cards-properties a[wized='cardOfProperty']")
     FILTERED_PRICE_RANGE = (By.CSS_SELECTOR, "div.price-value")
     PROJECT_BLOCK = (By.CSS_SELECTOR, ".cards-properties")
+
+    PROJECTS = (By.CSS_SELECTOR, "a[wized='cardOfProperty']")
+    PROJECT_IMAGE = (By.CSS_SELECTOR, "div.project-image")
+    PROJECT_TITLE = (By.CSS_SELECTOR, "div.project-name")
 
     def click_off_plan_menu(self):
         self.wait_element_clickable_click(*self.OFF_PLAN_MENU)
@@ -68,6 +71,17 @@ class OffPlanPage(Page):
             price_amount = int(price.text.replace('AED ','').replace(',', ''))
             # print(price_amount)
             assert 1200000 < price_amount < 2000000, f"Price should be in the range 1200000 to 2000000."
+
+    def verify_product_title_picture(self):
+        time.sleep(5) # for page to load
+        # self.presence_of_element_located(*self.PROJECTS) # external page load not working
+        projects = self.find_elements(*self.PROJECTS)
+        # print(len(projects))
+        for project in projects:
+            image = project.find_element(*self.PROJECT_IMAGE)
+            assert image.is_displayed(), f"Doesn't contain image."
+            title = project.find_element(*self.PROJECT_TITLE)
+            assert title.text != "", f"Doesn't contain title."
 
 
 
