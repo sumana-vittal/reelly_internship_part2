@@ -30,3 +30,13 @@ def verify_price_in_range(context):
 @then("Verify each product on this page contains a title and picture visible.")
 def verify_product_title_picture(context):
     context.app.off_plan_page.verify_product_title_picture()
+
+#----------------------------------------------------------------------------------------------------------------------
+
+@when("Filter by sale status of 'Out of Stocks'.")
+def filter_sale_status_out_of_stock(context):
+    context.app.off_plan_page.filter_sale_status_out_of_stock()
+
+@then("Verify each product contains the Out of Stocks tag.")
+def verify_product_stock_tag(context):
+    context.app.off_plan_page.verify_product_stock_tag()

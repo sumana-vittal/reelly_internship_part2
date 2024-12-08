@@ -25,6 +25,9 @@ class OffPlanPage(Page):
     PROJECT_IMAGE = (By.CSS_SELECTOR, "div.project-image")
     PROJECT_TITLE = (By.CSS_SELECTOR, "div.project-name")
 
+    SALE_STATUS_DROPDOWN = (By.CSS_SELECTOR, "#Location-2")
+    PROJECT_SALE_STATUS = (By.CSS_SELECTOR, "div.commision_box div[wized='projectStatus']")
+
     def click_off_plan_menu(self):
         self.wait_element_clickable_click(*self.OFF_PLAN_MENU)
 
@@ -82,6 +85,17 @@ class OffPlanPage(Page):
             assert image.is_displayed(), f"Doesn't contain image."
             title = project.find_element(*self.PROJECT_TITLE)
             assert title.text != "", f"Doesn't contain title."
+
+    def filter_sale_status_out_of_stock(self):
+        self.select_dropdown_value('Out of stock', *self.SALE_STATUS_DROPDOWN)
+        time.sleep(2)
+
+    def verify_product_stock_tag(self):
+        projects = self.find_elements(*self.PROJECTS)
+        for project in projects:
+            status = project.find_element(*self.PROJECT_SALE_STATUS)
+            assert status.text == "Out of stock", f"Sale status has to 'Out of stock'."
+
 
 
 
