@@ -14,6 +14,14 @@ class OffPlanPage(Page):
     PREVIOUS_PAGE = (By.CSS_SELECTOR, "div[wized='previousPageProperties']")
     NEXT_PAGE = (By.CSS_SELECTOR, "a[wized='nextPageProperties']")
 
+    FILTER_BTN = (By.CSS_SELECTOR, ".points-block-game .filter-text")
+    FROM_FILTER_PRICE = (By.CSS_SELECTOR, "input[wized='unitPriceFromFilter']")
+    TO_FILTER_PRICE = (By.CSS_SELECTOR, "input[wized='unitPriceToFilter']")
+    APPLY_FILTER_BTN = (By.CSS_SELECTOR, "a[wized='applyFilterButton']")
+    # FILTERED_PROJECT = (By.CSS_SELECTOR, "div.cards-properties a[wized='cardOfProperty']")
+    FILTERED_PRICE_RANGE = (By.CSS_SELECTOR, "div.price-value")
+    PROJECT_BLOCK = (By.CSS_SELECTOR, ".cards-properties")
+
     def click_off_plan_menu(self):
         self.wait_element_clickable_click(*self.OFF_PLAN_MENU)
 
@@ -41,6 +49,25 @@ class OffPlanPage(Page):
 
         self.pagination(current_page, total_count, 1, *self.NEXT_PAGE)
 
+    def filter_project_by_price_range(self):
+        # self.wait_element_clickable_click(*self.FILTER_BTN)
+        time.sleep(1) # needed because flaky internet
+        self.presence_of_element_located(*self.PROJECT_BLOCK)
+        self.wait_element_clickable_click(*self.FILTER_BTN)
+        self.input_text("1200000", *self.FROM_FILTER_PRICE)
+        self.input_text("2000000", *self.TO_FILTER_PRICE)
+        # time.sleep(3)
+        self.wait_element_clickable_click(*self.APPLY_FILTER_BTN)
+
+    def verify_price_in_range(self):
+        time.sleep(5) # needed because flaky internet
+        # self.presence_of_element_located(*self.PROJECT_BLOCK)
+        price_lists  = self.find_elements(*self.FILTERED_PRICE_RANGE)
+        print(len(price_lists))
+        for price in price_lists:
+            price_amount = int(price.text.replace('AED ','').replace(',', ''))
+            # print(price_amount)
+            assert 1200000 < price_amount < 2000000, f"Price should be in the range 1200000 to 2000000."
 
 
 
