@@ -1,9 +1,7 @@
 import time
-
 from selenium.webdriver.common.by import By
 
 from pages.base_page import Page
-
 
 class OffPlanPage(Page):
 
@@ -95,6 +93,11 @@ class OffPlanPage(Page):
         for project in projects:
             status = project.find_element(*self.PROJECT_SALE_STATUS)
             assert status.text == "Out of stock", f"Sale status has to 'Out of stock'."
+
+    def click_on_first_product(self):
+        project = self.find_element(*self.PROJECTS)
+        project.click()
+
 
 
 

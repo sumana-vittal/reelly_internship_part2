@@ -10,6 +10,7 @@ from pages.main_menu_page import MainMenuPage
 from pages.main_page import MainPage
 from pages.news_page import NewsPage
 from pages.off_plan_page import OffPlanPage
+from pages.project_page import ProjectPage
 from pages.registration_page import RegistrationPage
 from pages.secondary_page import SecondaryPage
 from pages.settings_page import SettingsPage
@@ -41,3 +42,4 @@ class Application:
         self.news_page = NewsPage(driver)
         self.secondary_page = SecondaryPage(driver)
         self.off_plan_page = OffPlanPage(driver)
+        self.project_page = ProjectPage(driver)

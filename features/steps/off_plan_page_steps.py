@@ -39,4 +39,17 @@ def filter_sale_status_out_of_stock(context):
 
 @then("Verify each product contains the Out of Stocks tag.")
 def verify_product_stock_tag(context):
-    context.app.off_plan_page.verify_product_stock_tag()
+    context.app.off_plan_page.verify_product_stock_tag(context.val)
+
+#----------------------------------------------------------------------------------------------------------------------
+
+@when("Click on the first product.")
+def click_on_first_product(context):
+    context.app.off_plan_page.click_on_first_product()
+
+@then("Verify the one of three options of visualization 'architecture', 'interior', 'lobby' is present and are clickable")
+def verify_product_visualization_present_and_clickable(context):
+    context.app.project_page.verify_product_visualization_present_and_clickable()
+
+
+#----------------------------------------------------------------------------------------------------------------------
