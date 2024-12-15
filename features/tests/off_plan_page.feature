@@ -37,4 +37,5 @@ Feature:Test Scenarios for Off-plan Page
     And Click on off plan option at the left side menu.
     Then Verify the off-plan page opens.
     When Click on the first product.
-    Then Verify the one of three options of visualization 'architecture', 'interior', 'lobby' is present and are clickable
+    Then Verify the one of three options of visualization {Architecture}, {Interior}, {Lobby} is present.
+    And Verify visualization options are clickable.

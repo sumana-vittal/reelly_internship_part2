@@ -47,9 +47,17 @@ def verify_product_stock_tag(context):
 def click_on_first_product(context):
     context.app.off_plan_page.click_on_first_product()
 
-@then("Verify the one of three options of visualization 'architecture', 'interior', 'lobby' is present and are clickable")
-def verify_product_visualization_present_and_clickable(context):
-    context.app.project_page.verify_product_visualization_present_and_clickable()
+@then("Verify the one of three options of visualization {Architecture}, {Interior}, {Lobby} is present.")
+def verify_product_visualization_present(context, Architecture, Interior, Lobby):
+    # strip the curly braces around each parameter e.g, {Architecture}
+    visualization_tabs = [Architecture.replace('{','').replace('}',''), Interior.replace('{','').replace('}',''),
+                          Lobby.replace('{','').replace('}','')]
+    context.visualization_tabs = visualization_tabs
+    context.app.project_detail_page.verify_product_visualization_present(visualization_tabs)
+
+@then("Verify visualization options are clickable.")
+def verify_visualization_option_clickable(context):
+    context.app.project_detail_page.verify_visualization_option_clickable(context.visualization_tabs)
 
 
 #----------------------------------------------------------------------------------------------------------------------
