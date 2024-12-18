@@ -14,6 +14,11 @@ class MarketPage(Page):
     CURRENT_PAGE_COUNT = (By.CSS_SELECTOR, "div[wized='currentPageMarket']")
     FINAL_PAGE_COUNT = (By.CSS_SELECTOR, "div[wized='totalPageMarket']")
 
+    DEVELOPERS_TAB = (By.CSS_SELECTOR, "div[wized='marketTagDevelopers']")
+    MARKET_PAGE_CARD = (By.CSS_SELECTOR, "a[wized='marketPageCard']")
+    LICENSE_TAG = (By.CSS_SELECTOR, "//div[text()='License']")
+    DEVELOPER_PAGE_MARKET_IMAGE = (By.CSS_SELECTOR, "img[wized='marketPageBackgraundPhoto']")
+
     def click_on_market(self):
         self.wait_element_clickable_click(*self.MARKET_SIDE_MENU_LINK)
 
@@ -37,3 +42,21 @@ class MarketPage(Page):
         time.sleep(2)  # required for the page to  load
         print(initial_value)
         self.pagination(initial_value, 1, -1, *self.PREVIOUS_PAGE)
+
+#----------------------------------------------------------------------------------------------------------------------
+    def click_on_developers(self):
+        # wait for maket page to load
+        self.presence_of_element_located(*self.MARKET_PROJECT_GRID)
+        #click on Developers filter
+        self.wait_element_clickable_click(*self.DEVELOPERS_TAB)
+
+    def verify_license_tag(self):
+        self.wait_for_all_visibility_elements_located(*self.DEVELOPER_PAGE_MARKET_IMAGE)
+        # find all market grid card
+        market_cards = self.find_elements(*self.MARKET_PAGE_CARD)
+        print(len(market_cards))
+        # check each card has license tag
+        for card in market_cards:
+            assert 'License' in card.text , f"This market card doesn't have License Tag."
+
+
