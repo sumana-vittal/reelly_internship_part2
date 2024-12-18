@@ -8,6 +8,7 @@ from pages.edit_profile_page import EditProfilePage
 from pages.login_page import Login
 from pages.main_menu_page import MainMenuPage
 from pages.main_page import MainPage
+from pages.market_page import MarketPage
 from pages.news_page import NewsPage
 from pages.off_plan_page import OffPlanPage
 from pages.project_detail_page import ProjectPage
@@ -43,3 +44,4 @@ class Application:
         self.secondary_page = SecondaryPage(driver)
         self.off_plan_page = OffPlanPage(driver)
         self.project_detail_page = ProjectPage(driver)
+        self.market_page = MarketPage(driver)
