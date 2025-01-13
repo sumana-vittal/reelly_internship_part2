@@ -16,6 +16,7 @@ class SettingsPage(Page):
     NEWS = (By.CSS_SELECTOR, "[href*='https://t.me/reellydxb'].page-setting-block")
     SETTINGS_OPTIONS = (By.CSS_SELECTOR, "a.page-setting-block")
     CONNECT_COMPANY_BUTTON = (By.XPATH, "//div[@class='settings-profile-block']//div[text()='Connect the company']")
+    VERIFICATION = (By.CSS_SELECTOR, "a[href*='verification']")
 
     def __init__(self,driver):
         super().__init__(driver)
@@ -46,6 +47,9 @@ class SettingsPage(Page):
 
     def click_news(self):
         self.click(*self.NEWS)
+
+    def click_verification(self):
+        self.click(*self.VERIFICATION)
 
     def verify_setting_page_opens(self, expected_partial_url):
         self.verify_partial_url(expected_partial_url)

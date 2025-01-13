@@ -19,6 +19,7 @@ from pages.side_panel_menu import SidePanelMenu
 from pages.subscription_and_payment import SubscriptionPaymentPage
 from pages.support_page import SupportPage
 from pages.user_guide_page import UserGuidePage
+from pages.verification_page import VerificationPage
 
 
 class Application:
@@ -45,3 +46,4 @@ class Application:
         self.off_plan_page = OffPlanPage(driver)
         self.project_detail_page = ProjectPage(driver)
         self.market_page = MarketPage(driver)
+        self.verification_page = VerificationPage(driver)

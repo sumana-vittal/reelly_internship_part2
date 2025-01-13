@@ -80,3 +80,11 @@ Feature: Test Scenarios for the setting page.
     Then Verify the right page opens.
     And Verify there are 12 options for the settings.
     And Verify 'connect the company' button is available.
+
+  Scenario: User can click on verifications settings option and verify the right page opens
+    Given Open the main page https://soft.reelly.io
+    When Log in to the page.
+    And Click on settings option.
+    And Click on the verification option.
+    Then Verify the right page verification opens.
+    Then Verify 'upload image' and 'Next step' buttons are available.

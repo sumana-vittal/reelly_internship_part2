@@ -71,4 +71,8 @@ def verify_contact_support_btn(context):
     context.app.community_page.verify_contact_support()
 
 
+#-------------------------------------------------------------------------------------------------------------------
 
+@when("Click on the verification option.")
+def click_on_verification(context):
+    context.app.settings_page.click_verification()
