@@ -19,6 +19,8 @@ class MarketPage(Page):
     LICENSE_TAG = (By.CSS_SELECTOR, "//div[text()='License']")
     DEVELOPER_PAGE_MARKET_IMAGE = (By.CSS_SELECTOR, "img[wized='marketPageBackgraundPhoto']")
 
+    ADD_COMPANY_BTN = (By.CSS_SELECTOR, "a.add-company-button")
+
     def click_on_market(self):
         self.wait_element_clickable_click(*self.MARKET_SIDE_MENU_LINK)
 
@@ -58,5 +60,8 @@ class MarketPage(Page):
         # check each card has license tag
         for card in market_cards:
             assert 'License' in card.text , f"This market card doesn't have License Tag."
+# ----------------------------------------------------------------------------------------------------------------------
 
+    def click_add_company_btn(self):
+        self.wait_element_clickable_click(*self.ADD_COMPANY_BTN)
 

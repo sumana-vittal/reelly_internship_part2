@@ -1,4 +1,5 @@
 from pages.add_a_project_page import AddAProjectPage
+from pages.add_company import AddCompanyPage
 from pages.base_page import Page
 from pages.change_password_page import ChangePassword
 from pages.community_page import CommunityPage
@@ -47,3 +48,4 @@ class Application:
         self.project_detail_page = ProjectPage(driver)
         self.market_page = MarketPage(driver)
         self.verification_page = VerificationPage(driver)
+        self.add_company_page = AddCompanyPage(driver)

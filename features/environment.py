@@ -31,23 +31,23 @@ def browser_init(context, scenario_name):
     # else:
     #     print("Please provide the valid browser name")
 
-    # context.driver = webdriver.Chrome()
+    context.driver = webdriver.Chrome()
 
-    ##BrOWSERSTACK -runing testcases on cloud###
-    bs_user = "sumana_RfsCp8"
-    bs_key = "wQnv1Vg3qyisiGsxgbsq"
-    url = f"https://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub"
-
-    options = Options()
-    bstack_options = {
-        'os': 'OS X',
-        'osVersion': 'Sonoma',
-        'browserName': 'Chrome',
-        'sessionName': scenario_name
-    }
-
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
+    # ##BrOWSERSTACK -runing testcases on cloud###
+    # bs_user = "sumana_RfsCp8"
+    # bs_key = "wQnv1Vg3qyisiGsxgbsq"
+    # url = f"https://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub"
+    #
+    # options = Options()
+    # bstack_options = {
+    #     'os': 'OS X',
+    #     'osVersion': 'Sonoma',
+    #     'browserName': 'Chrome',
+    #     'sessionName': scenario_name
+    # }
+    #
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
 
 
 

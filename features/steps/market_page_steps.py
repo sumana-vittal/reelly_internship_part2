@@ -27,3 +27,15 @@ def verify_license_tag(context):
     context.app.market_page.verify_license_tag()
 
 # ----------------------------------------------------------------------------------------------------------------------
+
+@when("Click on 'Add Company' button.")
+def click_add_company_btn(context):
+    context.app.market_page.click_add_company_btn()
+
+@then("Verify the 'Add Company' page opens.")
+def verify_add_company_page_opens(context):
+    context.app.add_company_page.verify_add_company_page_opens()
+
+@then("Verify the button 'Publish my company' is available.")
+def verify_publish_my_company_btn(context):
+    context.app.add_company_page.verify_publish_company_btn()
